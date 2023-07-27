@@ -7,7 +7,7 @@ data class Current (
     val cloud: Int,
     val conditionDataSource: Condition,
     @SerializedName("feelslike_c")
-    val feelslikeC: Int,
+    val feelslikeC: Double,
     @SerializedName("feelslike_f")
     val feelslikeF: Double,
     @SerializedName("gust_kph")

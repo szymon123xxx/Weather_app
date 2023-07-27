@@ -13,13 +13,11 @@ import javax.inject.Inject
 class GetCurrentWeatherUseCase @Inject constructor(
     private val currentWeatherRepositoryImpl: CurrentWeatherRepositoryImpl
 ) {
-    operator fun invoke(): Flow<Resource<List<CurrentWeather>>> = flow {
+    operator fun invoke(): Flow<Resource<CurrentWeather>> = flow {
         try {
             emit(Resource.Loading())
             val currentWeather =
-                currentWeatherRepositoryImpl.getCurrentWeather("Wroclaw").map {
-                    it.toCurrentWeather()
-                }
+                currentWeatherRepositoryImpl.getCurrentWeather("Wroclaw").toCurrentWeather()
             emit(Resource.Success(currentWeather))
         } catch (e: HttpException) {
             emit(Resource.Error(message = e.localizedMessage ?: "Unexpected http error"))

@@ -6,9 +6,10 @@ data class CurrentDataSource(
     @SerializedName("air_quality")
     val airQualityDataSource: AirQualityDataSource,
     val cloud: Int,
+    @SerializedName("condition")
     val conditionDataSource: ConditionDataSource,
     @SerializedName("feelslike_c")
-    val feelslikeC: Int,
+    val feelslikeC: Double,
     @SerializedName("feelslike_f")
     val feelslikeF: Double,
     @SerializedName("gust_kph")

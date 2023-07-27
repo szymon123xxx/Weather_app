@@ -9,7 +9,6 @@ import com.example.weatherapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,8 +16,8 @@ class CurrentWeatherViewModel @Inject constructor(
     private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(CurrentWeatherListState())
-    val state: State<CurrentWeatherListState> = _state
+    private val _state = mutableStateOf(CurrentWeatherState())
+    val state: State<CurrentWeatherState> = _state
 
     init {
         getCurrentWeather()
@@ -28,22 +27,19 @@ class CurrentWeatherViewModel @Inject constructor(
         getCurrentWeatherUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    Timber.d("ELOELO SUCCESS ${result.data}")
                     _state.value =
-                        CurrentWeatherListState(currentWeatherList = result.data ?: emptyList())
+                        CurrentWeatherState(currentWeatherItem = result.data)
                 }
 
                 is Resource.Error -> {
-                    Timber.d("ELOELO ERROR ${result.message}")
-                    _state.value = CurrentWeatherListState(
+                    _state.value = CurrentWeatherState(
                         error = result.message
                             ?: "Unexpected Error in ${CurrentWeatherViewModel::class.java}"
                     )
                 }
 
                 is Resource.Loading -> {
-                    Timber.d("ELOELO Loading")
-                    _state.value = CurrentWeatherListState(isLoading = true)
+                    _state.value = CurrentWeatherState(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)
