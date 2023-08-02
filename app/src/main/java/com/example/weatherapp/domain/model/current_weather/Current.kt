@@ -31,6 +31,11 @@ data class Current (
     val windMph: Float,
     @SerializedName("is_day")
     val isDay: Int,
+    @SerializedName("precip_mm")
+    val precipMm: Float,
+    val uv: Int,
+    @SerializedName("vis_km")
+    val visKm: Int,
 )
 
 fun CurrentDataSource.toCurrent(): Current {
@@ -50,5 +55,8 @@ fun CurrentDataSource.toCurrent(): Current {
         windKph = windKph,
         windMph = windMph,
         isDay = isDay,
+        precipMm = precipMm,
+        uv = uv,
+        visKm = visKm,
     )
 }

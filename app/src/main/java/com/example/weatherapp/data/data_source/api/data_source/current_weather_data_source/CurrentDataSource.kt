@@ -24,9 +24,9 @@ data class CurrentDataSource(
     @SerializedName("last_updated_epoch")
     val lastUpdatedEpoch: Int,
     @SerializedName("precip_in")
-    val precipIn: Int,
+    val precipIn: Float,
     @SerializedName("precip_mm")
-    val precipMm: Int,
+    val precipMm: Float,
     @SerializedName("pressure_in")
     val pressureIn: Double,
     @SerializedName("pressure_mb")
