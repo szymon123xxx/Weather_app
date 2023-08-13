@@ -1,8 +1,8 @@
 package com.example.weatherapp.utils
 
 import com.example.weatherapp.data.data_source.api.endpoints.WeatherApi
-import com.example.weatherapp.data.data_source.api.repository.CurrentWeatherRepositoryImpl
-import com.example.weatherapp.domain.repository.CurrentWeatherRepository
+import com.example.weatherapp.data.data_source.api.repository.WeatherRepositoryImpl
+import com.example.weatherapp.domain.repository.WeatherRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,8 +46,7 @@ object DI {
 
     @Singleton
     @Provides
-    fun provideRepository(weatherApi: WeatherApi): CurrentWeatherRepository {
-        return CurrentWeatherRepositoryImpl(weatherApi)
+    fun provideRepository(weatherApi: WeatherApi): WeatherRepository {
+        return WeatherRepositoryImpl(weatherApi)
     }
-
 }

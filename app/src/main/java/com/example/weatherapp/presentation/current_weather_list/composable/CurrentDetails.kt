@@ -60,7 +60,7 @@ fun CurrentDetails(
     Row(horizontalArrangement = Arrangement.End, modifier = Modifier.fillMaxWidth()) {
         Text(
             text = "weatherapi.com",
-            color = Color.White,
+            color = Color.White.copy(alpha = 0.5f),
             fontSize = 15.sp,
             modifier = Modifier.padding(end = 20.dp, bottom = 20.dp)
         )

@@ -3,8 +3,6 @@ package com.example.weatherapp.data.data_source.api.data_source.current_weather_
 import com.google.gson.annotations.SerializedName
 
 data class CurrentDataSource(
-    @SerializedName("air_quality")
-    val airQualityDataSource: AirQualityDataSource,
     val cloud: Int,
     @SerializedName("condition")
     val conditionDataSource: ConditionDataSource,
