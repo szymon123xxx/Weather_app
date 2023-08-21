@@ -30,7 +30,7 @@ fun TomorrowWeatherDetails(
     }
 
     Text(
-        text = "Current details",
+        text = "Weather details",
         color = Color.White,
         fontSize = 15.sp,
         modifier = Modifier.padding(20.dp),
