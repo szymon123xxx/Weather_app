@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ForecastWeatherViewModel @Inject constructor(
-    private val getWeatherForecastUseCase: GetWeatherForecastUseCase
+    private val getWeatherForecastUseCase: GetWeatherForecastUseCase,
 ) : ViewModel() {
 
     private val _state = mutableStateOf(ForecastWeatherState())

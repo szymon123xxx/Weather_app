@@ -21,9 +21,12 @@ import com.example.weatherapp.utils.LoadFromUrl
 import com.example.weatherapp.utils.formatDateHH
 
 @Composable
-fun CurrentPrecipitationForecast(
-    currentPrecipitationForecast: WeatherForecast
+fun PrecipitationForecast(
+    precipitationForecast: WeatherForecast,
+    dayWeather: String,
 ) {
+    val takenPrecipitationForecast =
+        precipitationForecast.forecast.forecastday[dayWeather.toInt()]
 
     Text(
         text = "Precipitation",
@@ -54,9 +57,9 @@ fun CurrentPrecipitationForecast(
             }
         }
         items(
-            currentPrecipitationForecast.forecast.forecastday.size
+            precipitationForecast.forecast.forecastday.size
         ) {
-            CreateColumnForEachItemInHour(currentPrecipitationForecast.forecast.forecastday.first().hour.map { it })
+            CreateColumnForEachItemInHour(takenPrecipitationForecast.hour.map { it })
         }
     }
 
@@ -69,7 +72,7 @@ fun CurrentPrecipitationForecast(
         )
 
         Text(
-            text = "${currentPrecipitationForecast.forecast.forecastday.first().day.totalPrecipMm}mm",
+            text = "${takenPrecipitationForecast.day.totalPrecipMm}mm",
             color = Color.White,
             fontSize = 15.sp,
         )

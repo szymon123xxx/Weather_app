@@ -1,4 +1,4 @@
-package com.example.weatherapp.presentation.current_weather_list.composable
+package com.example.weatherapp.presentation.tomorrow_weather_list.composable
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,22 +11,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.weatherapp.domain.model.current_weather.CurrentWeather
+import com.example.weatherapp.domain.model.weather_forecast.Forecastday
+import com.example.weatherapp.presentation.current_weather_list.composable.WeatherInfo
 import com.example.weatherapp.presentation.theme.LightGreyColor
 
-data class WeatherInfo(val label: String, val value: String)
-
 @Composable
-fun CurrentDetails(
-    currentWeather: CurrentWeather,
+fun TomorrowWeatherDetails(
+    precipitationForecast: Forecastday,
 ) {
-    val weatherInfoList = with(currentWeather.current) {
+    val weatherInfoList = with(precipitationForecast.day) {
         listOf(
-            WeatherInfo("Humidity", humidity.toString() + "\u0025"),
-            WeatherInfo("Pressure", "$pressureMb mBar"),
-            WeatherInfo("Visibility", "$visKm km"),
+            WeatherInfo("Avg Humidity", humidity.toString() + "\u0025"),
+            WeatherInfo("Precipitation amount", "$totalPrecipMm mm"),
+            WeatherInfo("Avg visibility", "$visibility km"),
             WeatherInfo("UV index", uv.toString()),
-            WeatherInfo("Wind direction", windDir)
+            WeatherInfo("Max wind speed ", "$maxWindKph km"),
         )
     }
 

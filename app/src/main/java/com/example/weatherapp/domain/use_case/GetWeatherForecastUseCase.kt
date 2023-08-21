@@ -11,14 +11,14 @@ import java.io.IOException
 import javax.inject.Inject
 
 class GetWeatherForecastUseCase @Inject constructor(
-    private val weatherRepositoryImpl: WeatherRepositoryImpl
+    private val weatherRepositoryImpl: WeatherRepositoryImpl,
 ) {
-        operator fun invoke(): Flow<Resource<WeatherForecast>> = flow {
+    operator fun invoke(): Flow<Resource<WeatherForecast>> = flow {
             try {
                 emit(Resource.Loading())
                 val weatherForecast =
-                    weatherRepositoryImpl.getWeatherForecast("Krakow", "1").toForecast()
-                emit(Resource.Success(weatherForecast))
+                    weatherRepositoryImpl.getWeatherForecast("Wroclaw", "2").toForecast()
+                emit(Resource.Success(data = weatherForecast))
             } catch (e: HttpException) {
                 emit(Resource.Error(message = e.localizedMessage ?: "Unexpected http error"))
             } catch (e: IOException) {
