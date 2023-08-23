@@ -18,6 +18,8 @@ Image Loading: Utilize Coil for smooth and efficient loading of weather conditio
 <p align="center">
 <img src="https://github.com/szymon123xxx/Weather_app/assets/56151418/c99c9743-7689-4ea2-8cc8-ed5d5c383b51" width="250" height="500">
 <img src="https://github.com/szymon123xxx/Weather_app/assets/56151418/f7077637-707d-41dd-b023-7ce3b8a5148f" width="250" height="500">
+</p>
+<p align="center">
 <img src="https://github.com/szymon123xxx/Weather_app/assets/56151418/4c80f81b-85cc-43b8-8ec6-8a1a9a42c704" width="250" height="500">
 <img src="https://github.com/szymon123xxx/Weather_app/assets/56151418/098513d8-085c-4948-8cbb-a9865b686e47" width="250" height="500">
 </p>
